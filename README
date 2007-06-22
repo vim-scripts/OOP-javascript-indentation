@@ -1,0 +1,19 @@
+This is a mirror of http://www.vim.org/scripts/script.php?script_id=1936
+
+This indentation script for javascript 
+
+example of public method of class
+
+var testing = function(){
+  return {
+    showDialog:new dialog([
+      {
+        1:'testing',
+        2:'coba',
+        3:'jajal'
+      }
+    ]);
+  }
+}
+
+Comments are welcome! ryanthe@gmail.com
