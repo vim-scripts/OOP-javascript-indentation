@@ -67,7 +67,7 @@ function! GetJsIndent()
        let ind = ind + &sw
     endif
 
-    if line =~ '^\s*}\s*$\|^\s*]\s*$\|\s*},\|\s*]);\s*\|\s*}]\s*$\|\s*};\s*$\|\s*})$\|\s*}).el$' && pline !~ '\s*;\s*$\|\s*]\s*$' && line !~ '^\s*{' 
+    if line =~ '^\s*}\s*$\|^\s*]\s*$\|\s*},\|\s*]);\s*\|\s*}]\s*$\|\s*};\s*$\|\s*})$\|\s*}).el$' && pline !~ '\s*;\s*$\|\s*]\s*$' && line !~ '^\s*{' && line !~ '\s*{\s*}\s*'
           let ind = ind - &sw
     endif
     return ind
