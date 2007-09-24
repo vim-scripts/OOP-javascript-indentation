@@ -2,7 +2,7 @@
 " Language:	JavaScript
 " Author:	Ryan (ryanthe) Fabella <ryanthe at gmail dot com>
 " URL:		-
-" Last Change:  2007 june 18
+" Last Change:  2007 september 25
 
 if exists('b:did_indent')
   finish
@@ -27,6 +27,7 @@ function! GetJsIndent()
     let line = getline(v:lnum)
     let pline = getline(pnum)
     let ind = indent(pnum)
+    
     if pline =~ '{\s*$\|[\s*$\|(\s*$'
 	let ind = ind + &sw
     endif
@@ -69,6 +70,14 @@ function! GetJsIndent()
 
     if line =~ '^\s*}\s*$\|^\s*]\s*$\|\s*},\|\s*]);\s*\|\s*}]\s*$\|\s*};\s*$\|\s*})$\|\s*}).el$' && pline !~ '\s*;\s*$\|\s*]\s*$' && line !~ '^\s*{' && line !~ '\s*{\s*}\s*'
           let ind = ind - &sw
+    endif
+
+    if pline =~ '^\s*/\*'
+      let ind = ind + 1
+    endif
+
+    if pline =~ '\*/$'
+      let ind = ind - 1
     endif
     return ind
 endfunction
